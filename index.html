@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tamagotchi</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="gameBoy">
+      <div class="gameBoy__tamagoContainer">
+        <div class="gameBoy__tamagoStats">
+          <p class="bar">
+            <img src="./images/icons/heart.svg" width="40" height="40" /><span
+              class="health"
+            />
+          </p>
+          <p class="bar">
+            <img src="./images/icons/apple.svg" width="40" height="40" /><span
+              class="hunger"
+            />
+          </p>
+          <p class="bar">
+            <img src="./images/icons/sleepy.svg" width="40" height="40" /><span
+              class="energy"
+            />
+          </p>
+          <p class="bar">
+            <img src="./images/icons/ball.svg" width="40" height="40" /><span
+              class="fun"
+            />
+          </p>
+        </div>
+        <div class="gameBoy__tamago"></div>
+        <div class="gameBoy__tamagoInfo">Happy</div>
+      </div>
+      <div class="gameBoy__buttons">
+        <button class="gameBoy__button">
+          <img src="./images/icons/apple.svg" width="40" height="40" />
+        </button>
+        <button class="gameBoy__button">
+          <img src="./images/icons/sleepy.svg" width="40" height="40" />
+        </button>
+        <button class="gameBoy__button">
+          <img src="./images/icons/ball.svg" width="40" height="40" />
+        </button>
+      </div>
+    </div> 
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
