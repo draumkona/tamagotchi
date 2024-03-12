@@ -92,10 +92,31 @@ body {
   margin: 15px auto 20px auto;
 }
 
-.gameBoy__tamago {
+.gameBoy__tamagoScreen {
   border: 10px solid var(--blue);
+  height: 280px;
   margin: auto;
-  padding: 70px;
+  padding: 50px;
+  position: relative;
+}
+
+.gameBoy__tamago {
+  position: absolute;
+  background: url(./images/tamago/Tamago.png);
+  background-position: center;
+  width: 240px;
+  height: 150px;
+  animation: playing 1s steps(2) infinite;
+}
+
+.gameBoy__tamago::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 162px;
+  background-color: var(--white);
+  left: 35px;
+  bottom: 1px;
 }
 
 .gameBoy__tamagoInfo {
@@ -113,4 +134,81 @@ body {
 .gameBoy__icon {
   width: 40px;
   height: 40px;
+}
+
+/*tamago animations*/
+@keyframes happy {
+  0% {
+    background-position: 0 -13px;
+  }
+  100% {
+    background-position: 0 -13px;
+  }
+}
+
+@keyframes dead {
+  0% {
+    margin-top: 40px;
+    height: 100px;
+    background-position: 0 -360px;
+  }
+  100% {
+    margin-top: 40px;
+    height: 100px;
+    background-position: 0 -360px;
+  }
+}
+
+@keyframes sleepy {
+  0% {
+    background-position: 0 -488px;
+  }
+  100% {
+    background-position: 0 -488px;
+  }
+}
+
+@keyframes sleeping {
+  0% {
+    background-position: 0 -666px;
+  }
+  100% {
+    background-position: 0 -1022px;
+  }
+}
+
+@keyframes hungry {
+  0% {
+    background-position: 0 -1023px;
+  }
+  100% {
+    background-position: 0 -1023px;
+  }
+}
+
+@keyframes eating {
+  0% {
+    background-position: 0 -1201px;
+  }
+  100% {
+    background-position: 0 -1557px;
+  }
+}
+
+@keyframes bored {
+  0% {
+    background-position: 0 -1941px;
+  }
+  100% {
+    background-position: 0 -1941px;
+  }
+}
+
+@keyframes playing {
+  0% {
+    background-position: 0 -1571px;
+  }
+  100% {
+    background-position: 0 -1955px;
+  }
 }
