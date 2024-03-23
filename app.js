@@ -4,5 +4,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const game = new Game();
 
   // Start game
-  game.start({ healthElement: ".health" });
+  game.start({ healthElement: ".health", energyElement: ".energy", funElement: ".fun", hungerElement: ".hunger" });
 });
