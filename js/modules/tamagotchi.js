@@ -4,7 +4,6 @@ export default class Tamagotchi {
     this.hunger = { value: 10, importance: 3 };
     this.energy = { value: 10, importance: 2 };
     this.fun = { value: 10, importance: 4 };
-    console.log("Tamagotchi initialized");
 
     this.energyDecreaseInterval = setInterval(
       this.decreaseEnergy.bind(this),
@@ -27,17 +26,14 @@ export default class Tamagotchi {
   decreaseEnergy() {
     if (this.energy.value > 0) {
       this.energy.value--;
+      if (this.fun.value < 0) {
+        this.energy.value--;
+      }
       console.log("energy:", this.energy.value);
     } else {
       clearInterval(this.energyDecreaseInterval);
     }
-    this.additionalEnergyDecrease();
-  }
-
-  additionalEnergyDecrease() {
-    if (this.fun.value === 0) {
-      this.energy.value--;
-    }
+    this.updateHealthDecreaseInterval();
   }
 
   decreaseHunger() {
@@ -47,6 +43,7 @@ export default class Tamagotchi {
     } else {
       clearInterval(this.hungerDecreaseInterval);
     }
+    this.updateHealthDecreaseInterval();
   }
 
   decreaseFun() {
@@ -56,6 +53,26 @@ export default class Tamagotchi {
     } else {
       clearInterval(this.funDecreaseInterval);
     }
+    this.updateHealthDecreaseInterval();
+  }
+
+  updateHealthDecreaseInterval() {
+    if (
+      (this.energy.value <= 0 || this.hunger.value <= 0) &&
+      !this.healthDecreaseInterval
+    ) {
+      this.healthDecreaseInterval = setInterval(
+        this.decreaseHealth.bind(this),
+        1000
+      );
+    } else if (
+      this.energy.value > 0 &&
+      this.hunger.value > 0 &&
+      this.healthDecreaseInterval
+    ) {
+      clearInterval(this.healthDecreaseInterval);
+      this.healthDecreaseInterval = null;
+    }
   }
 
   decreaseHealth() {
@@ -64,6 +81,7 @@ export default class Tamagotchi {
       console.log("health:", this.health.value);
       this.checkHealthStatus();
       this.checkHealthInterval();
+      this.updateHealthDecreaseInterval();
     }
   }
 
